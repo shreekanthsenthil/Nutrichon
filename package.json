@@ -1,0 +1,20 @@
+{
+  "name": "nutrichon",
+  "version": "1.0.0",
+  "description": "Nutrition App",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": "https://github.com/shreekanthsenthil/Nutrichon.git",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.17",
+    "validator": "^13.5.2"
+  }
+}
