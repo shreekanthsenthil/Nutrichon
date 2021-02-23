@@ -12,10 +12,14 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
-mongoose.connect(MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose
+  .connect(MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "http://localhost:3000");
@@ -31,6 +35,11 @@ app.use((req, res, next) => {
   next();
 });
 
+const userRoutes = require("./src/routes/user.routes");
+const postRoutes = require("./src/routes/post.routes");
+
+app.use("/users", userRoutes);
+app.use("/posts", postRoutes);
 
 app.use((req, res, next) => {
   const error = new Error("Not found!!!!!!");
