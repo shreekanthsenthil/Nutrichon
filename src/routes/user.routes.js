@@ -9,5 +9,9 @@ router.post("/register", userController.register);
 router.post("/login", userController.login);
 router.get("/getposts", auth, userController.getUserPost);
 router.get("/search", auth, userController.searchUserByName);
+router.post("/setheight", auth, userController.setHeight);
+router.post("/setweight", auth, userController.setWeight);
+router.get("/getweights", auth, userController.getWeights);
+router.get("/:id", auth, userController.getUserDataById);
 
 module.exports = router;

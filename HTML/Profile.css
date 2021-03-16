@@ -1,0 +1,9 @@
+body{
+    display: block;
+}
+
+.form-label{
+    display: block;
+    margin: 12px 0px;
+    font-size: medium;
+}

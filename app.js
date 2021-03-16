@@ -1,6 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
+const morgan = require("morgan");
 
 const { MONGO_URI } = require("./src/config/mongodb");
 const app = express();
@@ -11,6 +12,7 @@ app.use(
 );
 app.use(express.json());
 app.use(cookieParser());
+app.use(morgan("dev"));
 
 mongoose
   .connect(MONGO_URI, {

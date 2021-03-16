@@ -4,7 +4,9 @@ const validator = require("validator");
 const heightSchema = mongoose.Schema({
   date: {
     type: String,
-    default: Date.now,
+    default: () => {
+      return new Date().toISOString().slice(0, 10).replace(/-/g, "");
+    },
   },
   height: {
     type: Number,
@@ -15,7 +17,9 @@ const heightSchema = mongoose.Schema({
 const weightSchema = mongoose.Schema({
   date: {
     type: String,
-    default: Date.now,
+    default: () => {
+      return new Date().toISOString().slice(0, 10).replace(/-/g, "");
+    },
   },
   weight: {
     type: Number,
@@ -33,8 +37,6 @@ const foodDataSchema = mongoose.Schema({
     required: true,
   },
 });
-
-const postSchema = mongoose.Schema({});
 
 const userSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,

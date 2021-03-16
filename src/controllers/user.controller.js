@@ -148,3 +148,79 @@ exports.searchUserByName = async (req, res, next) => {
     res.status(500).json(err);
   }
 };
+
+exports.setHeight = async (req, res, next) => {
+  try {
+    let height = req.body.height;
+    let date = new Date().toISOString().slice(0, 10).replace(/-/g, "");
+    console.log(date);
+    let update = await User.updateOne(
+      { _id: req.userData.userId, "heights.date": date },
+      { $set: { heights: { height: height } } }
+    );
+    if (update.n == 0) {
+      await User.updateOne(
+        { _id: req.userData.userId },
+        { $push: { heights: { date: date, height: height } } }
+      );
+    }
+    res.status(200).json({});
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+};
+
+exports.getUserDataById = async (req, res, next) => {
+  try {
+    console.log(req.params.id);
+    let user = await User.findOne({ _id: req.params.id })
+      .populate("posts")
+      .exec();
+    console.log(user);
+    // if (user != null) user.password = undefined;
+    res.status(200).json(user);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+};
+
+exports.setWeight = async (req, res, next) => {
+  try {
+    let weight = req.body.weight;
+    let date = new Date(2022, 03, 25)
+      .toISOString()
+      .slice(0, 10)
+      .replace(/-/g, "");
+    let update = await User.updateOne(
+      { _id: req.userData.userId, "weights.date": date },
+      { $set: { weights: { weight: weight } } }
+    );
+    if (update.n == 0) {
+      await User.updateOne(
+        { _id: req.userData.userId },
+        { $push: { weights: { date: date, weight: weight } } }
+      );
+    }
+    res.status(200).json({ message: "Success" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+};
+
+exports.getWeights = async (req, res, next) => {
+  try {
+    let weights = await User.find({ _id: req.userData.userId })
+      .select("weights")
+      .sort([["weights.date", 1]]) //SORTING NOT WORKING
+      .limit(10)
+      .exec();
+    console.log(weights);
+    res.status(200).json(weights);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+};
