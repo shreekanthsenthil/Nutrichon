@@ -103,21 +103,87 @@ nav .float-right {
     transform-origin: 50% 50%;
 }
 
-.nutrichon-content svg {
-    margin-top: 10px;
+.total-calorie{
+    display: flex;
 }
 
-.nutrichon-content h4 {
-    display: inline;
-    margin-top: 0;
-    margin-bottom: 0;
+.total-calorie svg {
+    margin-top: 12px;
+}
+
+.total-calorie h4 {
+    margin-left: 20px;
     vertical-align: middle;
+    font-weight: 550;
 }
 
-.nutrichon-content i {
-    display: inline;
-    float: right;
+.total-calorie h4 span {
+    font-weight: 700;
 }
+
+.meal{
+    width: 100%;
+    background-color: #d6d6d6;
+    box-shadow:  1px 1px #aaaaaa;
+    border-radius: 2px;
+    margin-bottom: 15px;
+}
+
+.meal-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: white;
+    padding: 10px;
+}
+
+.meal-heading img{
+    margin-left: 10px;
+}
+
+.meal-heading h3{
+    margin: 0 30px;
+}
+
+.meal-heading button{
+    display: block;
+    margin-left: auto;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.meal-food{
+    display: flex;
+    padding: 5px 10px;
+    border-bottom: 2px solid #aaaaaa;
+}
+
+.meal-food p{
+    font-weight: 500;
+}
+
+.meal-food-quantity{
+    align-self: center;
+    margin-left: auto;
+}
+
+.meal-food-quantity-plus{
+    background-color: transparent;
+    border: none;
+    padding: 0 2px;
+}
+
+.meal-food-quantity-minus{
+    background-color: transparent;
+    border: none;
+    padding: 0 2px;
+}
+
+.meal-food-quantity-number{
+    padding: 0 2px;
+}
+
 
 .newpost-create {
     float: right;
