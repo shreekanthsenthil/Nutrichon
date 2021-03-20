@@ -102,7 +102,7 @@
         <div class="meal-heading">
         <img src="./assets/img/breakfast.png" height="30px">
         <h3>Breakfast</h3>
-        <button><i class="fas fa-plus"></i></button>
+        <button class="breakfast-add"><i class="fas fa-plus"></i></button>
         </div>
         <div class="meal-foods">
           <div class="meal-food">
@@ -129,7 +129,7 @@
         <div class="meal-heading">
         <img src="./assets/img/lunch.png" height="30px">
         <h3>Lunch</h3>
-        <button><i class="fas fa-plus"></i></button>
+        <button class="lunch-add"><i class="fas fa-plus"></i></button>
         </div>
         <div class="meal-foods">
           <div class="meal-food">
@@ -164,6 +164,40 @@
         </div>
       </div>
 
+      <div class="add-food-modal">
+        <div class="add-food-modal-content">
+          <span class="add-food-modal-close">&times;</span>
+          <h3>Add Food</h3>
+          <input
+            type="text"
+            class="search-field"
+            placeholder="&#xF002; Food"
+            style="font-family: Roboto, FontAwesome"
+          />
+          <div class="food-result-area">
+            
+            <div class="food">
+              <p>Idli <span>(pcs)</span> </p>
+              <div class="add-food-quantity">
+                <button class="meal-food-quantity-minus"><i class="fas fa-minus-circle"></i></button>
+                  <span class="meal-food-quantity-number">1</span>
+              <button class="meal-food-quantity-plus"><i class="fas fa-plus-circle"></i></button>
+              </div>
+            </div>
+
+            <div class="food food-last">
+              <p>Dosa <span>(pcs)</span> </p>
+              <div class="add-food-quantity">
+                <button class="meal-food-quantity-minus"><i class="fas fa-minus-circle"></i></button>
+                  <span class="meal-food-quantity-number">2</span>
+              <button class="meal-food-quantity-plus"><i class="fas fa-plus-circle"></i></button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
     </div>
     
 
@@ -192,7 +226,7 @@
       <!-- NEW POST MODAL -->
       <div id="newpostModal" class="newpost-modal">
         <!-- Modal content -->
-        <div class="modal-content">
+        <div class="newpost-modal-content">
           <span class="newpost-modal-close">&times;</span>
           <h2>New Post</h2>
           <form action="/newpost" method="post" class="newpost-form">
@@ -224,6 +258,18 @@
         .querySelector(".newpost-modal-close")
         .addEventListener("click", () => {
           document.querySelector(".newpost-modal").style.display = "none";
+        });
+
+      document
+        .querySelector(".breakfast-add")
+        .addEventListener("click", () => {
+          document.querySelector(".add-food-modal").style.display = "block";
+        });
+      
+      document
+        .querySelector(".add-food-modal-close")
+        .addEventListener("click", () => {
+          document.querySelector(".add-food-modal").style.display = "none";
         });
 
       const circle = document.querySelector(".progress-ring__circle");
