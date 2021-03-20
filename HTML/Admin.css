@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.panel{
+    width: 90%;
+    min-height: 90vh;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: bisque;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.totalusers, .totalposts {
+    display: inline;
+    font-size: large;
+    margin: 3px;
+}
+
+.totalposts {
+    display: inline;
+    float: right;
+}
+
+.users {
+    margin-top: 15px;
+    /* background-color: aqua;
+    border-radius: 5px;
+    padding: 5px; */
+}
+
+.user{
+    /* border-bottom: 3px solid blue; */
+    background-color: aqua;
+    border-radius: 5px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.user .name {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.user .email {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-style: italic;
+}
+
+.delete-user {
+    float: right;
+    cursor: pointer;
+    margin-top: 1px;
+    width: 100px;
+    height: 40px;
+    padding: 5px;
+    font-size: 15px;
+    outline: 0;
+    border-radius: 3px;
+    color: #fff;
+    background-color: red;
+    border-color: red;
+    box-shadow: none;
+    border-style: solid;
+}
+
+.post {
+    background-color: cadetblue;
+    border-radius: 3px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.delete-post {
+    float: right;
+    cursor: pointer;
+    margin-top: 5px;
+    margin-right: 3px;
+    width: 80px;
+    height: 35px;
+    padding: 4px;
+    font-size: 12px;
+    outline: 0;
+    border-radius: 3px;
+    color: #fff;
+    background-color: red;
+    border-color: red;
+    box-shadow: none;
+    border-style: solid;
+}
+
+.post-title {
+    color: rgb(19, 16, 16);
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.post-author {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+}
+
+.post-content {
+    text-align: justify;
+    font-size: 15px;
+}
