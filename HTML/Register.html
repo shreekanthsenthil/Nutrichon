@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="login-form">
-      <form action="/register" method="POST">
+      <form action="" method="" onsubmit="return false">
         <h2 class="text-center">Register</h2>
         <div class="form-group">
           <input
@@ -24,7 +24,7 @@
           <input
             type="email"
             name="email"
-            class="form-control"
+            class="form-control email-field"
             placeholder="Email"
             required="required"
           />
@@ -33,17 +33,36 @@
           <input
             type="password"
             name="password"
-            class="form-control"
+            class="form-control password-field"
             placeholder="Password"
             required="required"
           />
         </div>
         <div class="form-group">
-          <button type="submit" class="btn">Register</button>
+          <button type="" class="btn submit">Register</button>
         </div>
         <br />
         <p class="text-center">Already have an account? <a>Login</a></p>
       </form>
     </div>
+    <script>
+      let submit = document.querySelector('.submit')
+      let emailField = document.querySelector(".email-field")
+      let passwordField = document.querySelector('.password-field')
+      submit.addEventListener('click', () => {
+        let email = emailField.value
+        let password = passwordField.value
+        let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        let emailVaild = re.test(String(email).toLowerCase())
+        re = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+        let passwordValid = re.test(String(password))
+        if(emailVaild != true){
+          alert("Enter a valid Email")
+        }
+        if(!passwordValid){
+          alert("Password must be atleast 8 character with atleast 1 letter and 1 number")
+        }
+      })
+    </script>
   </body>
 </html>

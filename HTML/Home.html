@@ -10,19 +10,20 @@
       crossorigin="anonymous"
     ></script>
     <script>
+      let data = [
+      ["Date", "Weight"],
+      ["12.3", 67],
+      ["13.3", 67.5],
+      ["14.3", 66.9],
+      ["15.3", 67.8],
+      ["16.3", 68],
+      ["17.3", 68.3],
+    ]
       google.charts.load("current", { packages: ["corechart"] });
-      google.charts.setOnLoadCallback(drawChart);
+      google.charts.setOnLoadCallback(() => {drawChart(data)});
 
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ["Date", "Weight"],
-          ["12.3", 67],
-          ["13.3", 67.5],
-          ["14.3", 66.9],
-          ["15.3", 67.8],
-          ["16.3", 68],
-          ["17.3", 68.3],
-        ]);
+      function drawChart(data) {
+        var data = google.visualization.arrayToDataTable(data);
 
         var options = {
           title: "Weight",
@@ -62,7 +63,7 @@
         <label for="weight-input">
           <i class="fa fa-plus-circle" aria-hidden="true"></i>
         </label>
-        <input type="text" class="weight-input" id="weight-input" />
+        <input type="number" class="weight-input" id="weight-input" />
         <p>kgs</p>
       </div>
       <div class="bmi">
@@ -108,9 +109,9 @@
           <div class="meal-food">
             <p>Idli (pcs)</p>
             <div class="meal-food-quantity">
-              <button class="meal-food-quantity-minus"><i class="fas fa-minus-circle"></i></button>
-              <span class="meal-food-quantity-number">1</span>
-              <button class="meal-food-quantity-plus"><i class="fas fa-plus-circle"></i></button>
+              <button class="meal-food-quantity-minus counter-decrease"><i class="fas fa-minus-circle"></i></button>
+              <span class="meal-food-quantity-number counter">1</span>
+              <button class="meal-food-quantity-plus counter-increase"><i class="fas fa-plus-circle"></i></button>
             </div>
           </div>
 
@@ -283,6 +284,41 @@
       const circumference2 = radius2 * 2 * Math.PI;
       circle2.style.strokeDasharray = `${circumference2} ${circumference2}`;
       circle2.style.strokeDashoffset = 0;
+    </script>
+    <script>
+      let minus = document.querySelector(".counter-decrease")
+      let plus = document.querySelector(".counter-increase")
+      let counter = document.querySelector('.counter')
+      minus.addEventListener('click', () => {
+        let counterValue = parseInt(counter.innerHTML)
+        counterValue -= 1
+        if(counterValue >= 0){
+          counter.innerHTML = counterValue
+        }
+      })
+      plus.addEventListener('click', () => {
+        let counterValue = parseInt(counter.innerHTML)
+        counterValue += 1
+        counter.innerHTML = counterValue
+      })
+
+      let weightInput = document.querySelector('.weight-input')
+      weightInput.addEventListener('keypress', (e) => {
+        if(e.key === 'Enter'){
+          let newWeight = parseInt(weightInput.value)
+          let newData = [
+          ["Date", "Weight"],
+          ["12.3", 67],
+          ["13.3", 67.5],
+          ["14.3", 66.9],
+          ["15.3", 67.8],
+          ["16.3", 68],
+          ["17.3", 68.3],
+          ["18.5", newWeight]
+        ]
+        google.charts.setOnLoadCallback(() => {drawChart(newData)});
+        }
+      })
     </script>
   </body>
 </html>
