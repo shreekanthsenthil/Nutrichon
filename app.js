@@ -10,6 +10,8 @@ app.use(
     extended: false,
   })
 );
+
+app.use(express.static(__dirname + '/public'));
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan("dev"));
@@ -39,9 +41,11 @@ app.use((req, res, next) => {
 
 const userRoutes = require("./src/routes/user.routes");
 const postRoutes = require("./src/routes/post.routes");
+const fronendRoutes = require("./src/routes/frontend.routes")
 
 app.use("/users", userRoutes);
 app.use("/posts", postRoutes);
+app.use("/", fronendRoutes)
 
 app.use((req, res, next) => {
   const error = new Error("Not found!!!!!!");

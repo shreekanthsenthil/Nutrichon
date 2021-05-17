@@ -46,6 +46,9 @@ const userSchema = mongoose.Schema({
     unique: true,
     validate: validator.isEmail,
   },
+  name: {
+    type: String
+  },
   password: {
     type: String,
     required: true,
@@ -53,17 +56,9 @@ const userSchema = mongoose.Schema({
   phone: {
     type: Number,
   },
-  firstName: {
-    type: String,
-    required: true,
-  },
-  lastName: {
-    type: String,
-    required: true,
-  },
   age: {
     type: Number,
-    required: true,
+    // required: true,
   },
   about: {
     type: String,

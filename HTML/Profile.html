@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./Profile.css" />
-    <title>Profile</title>
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="profile.css" />
   </head>
   <body>
-    <h1>Profile Section</h1>
-    <form action="/profile" method="post">
-      <label for="about" class="form-label"> About You </label>
-      <textarea name="about" id="about" cols="30" rows="10"></textarea>
-      <label for="name" class="form-label">Name</label>
-      <input type="text" id="name" value="Shreekanth" disabled />
-    </form>
+    <center>
+      <div class="box">
+        <img src="./assets/img/profile.jpg" alt="profile picture" />
+        <input type="file" name="" id="file" accept="image/*" />
+        <br />
+        <label for="file">Edit pic</label><br />
+        <input type="text" name="" placeholder="User Name" />
+        <input type="email" name="" placeholder="Email Id" />
+        <input type="text" name="" placeholder="Phone Number" />
+        <input type="date" name="" placeholder="Date of Birth" />
+        <input type="text" name="" placeholder="Gender" />
+        <input type="number" min="120" name="" placeholder="Height" />
+        <button style="float: left; margin: 10px 0 0 18.2%">CANCEL</button>
+        <button style="float: right; margin: 10px 18.2% 0 0">DONE</button>
+      </div>
+    </center>
   </body>
 </html>

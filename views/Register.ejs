@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/Register.css" />
+    <title>Register</title>
+  </head>
+  <body>
+    <div class="login-form">
+      <form action="/users/register" method="POST">
+        <h2 class="text-center">Register</h2>
+        <div class="form-group">
+          <input
+            type="name"
+            name="name"
+            class="form-control"
+            placeholder="Name"
+            required="required"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            placeholder="Email"
+            required="required"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            placeholder="Password"
+            required="required"
+          />
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn">Register</button>
+        </div>
+        <br />
+        <p class="text-center">Already have an account? <a>Login</a></p>
+      </form>
+    </div>
+  </body>
+</html>
