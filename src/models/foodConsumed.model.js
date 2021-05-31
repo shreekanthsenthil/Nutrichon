@@ -17,7 +17,7 @@ const mealSchema = mongoose.Schema({
 
 const foodConsumedSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
-  Date: {
+  date: {
     type: String,
     required: true,
   },
@@ -34,7 +34,7 @@ const foodConsumedSchema = mongoose.Schema({
   dinner: {
     type: [mealSchema],
   },
-  supplements: {
+  snack: {
     type: [mealSchema],
   },
 });

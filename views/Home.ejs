@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script
+      src="https://kit.fontawesome.com/d8377fe31e.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./assets/css/Home.css" />
+    <title>Home Page</title>
+  </head>
+  <body>
+    <div class="home-page"></div>
+    <nav>
+      <a href="/home" class="active">Home</a>
+      <a href="/profile">Profile</a>
+      <a href="/aboutus" class="float-right">About Us</a>
+      <a href="/logout" class="float-right">Logout</a>
+    </nav>
+    <div class="weight section" style="margin-top: 90px">
+      <br />
+      <div id="weightgraph" style="width: 95%"></div>
+      <br />
+      <div class="weight-in">
+        <label for="weight-input">
+          <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        </label>
+        <input type="number" class="weight-input" id="weight-input" />
+        <p>kgs</p>
+      </div>
+      <div class="bmi">
+        <h2>BMI</h2>
+        <i class="fas fa-arrow-down bmi-indicator bmi-text">Obese</i>
+        <div class="bmi-level"></div>
+        <i class="fas fa-arrow-up bmi-indicator"></i>
+      </div>
+      <br />
+    </div>
+    <div class="section nutrichon">
+      <div class="total-calorie">
+        <svg class="progress-ring" height="35" width="35">
+          <circle
+            class="progress-ring__circle2"
+            stroke-width="4"
+            stroke="#969696"
+            fill="transparent"
+            r="10"
+            cx="15"
+            cy="15"
+          />
+          <circle
+            class="progress-ring__circle"
+            stroke-width="4"
+            stroke="black"
+            fill="transparent"
+            r="10"
+            cx="15"
+            cy="15"
+          />
+        </svg>
+        <h4 class="total-calorie-num" ><span>0</span> of 2500 Calories Consumed</h4>
+      </div>
+      <!-- BREAKFAST -->
+      <div class="meal breakfast">
+        <div class="meal-heading">
+        <img src="./assets/img/breakfast.png" height="30px">
+        <h3>Breakfast</h3>
+        <button class="breakfast-add"><i class="fas fa-plus"></i></button>
+        </div>
+        <div class="meal-foods breakfast-foods">
+          
+        </div>
+      </div>
+
+      <div class="meal lunch">
+        <div class="meal-heading">
+        <img src="./assets/img/lunch.png" height="30px">
+        <h3>Lunch</h3>
+        <button class="lunch-add"><i class="fas fa-plus"></i></button>
+        </div>
+        <div class="meal-foods lunch-foods">
+          
+        </div>
+      </div>
+
+      <div class="meal dinner">
+        <div class="meal-heading">
+        <img src="./assets/img/dinner.png" height="30px">
+        <h3>Dinner</h3>
+        <button><i class="fas fa-plus dinner-add"></i></button>
+        </div>
+        <div class="meal-foods dinner-foods">
+          
+        </div>
+      </div>
+
+      <div class="meal snack">
+        <div class="meal-heading">
+        <img src="./assets/img/snack.png" height="30px">
+        <h3>Snack</h3>
+        <button><i class="fas fa-plus snack-add"></i></button>
+        </div>
+        <div class="meal-foods snack-foods">
+          
+        </div>
+      </div>
+
+      <div class="add-food-modal">
+        <div class="add-food-modal-content">
+          <span class="add-food-modal-close">&times;</span>
+          <h3>Add Food</h3>
+          <input
+            type="text"
+            class="search-field"
+            placeholder="&#xF002; Food"
+            style="font-family: Roboto, FontAwesome"
+          />
+          <div class="food-result-area">
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+
+
+    <!-- POST SECTION -->
+    <div class="section posts">
+      <button class="newpost-create">New Post</button>
+      <h2>Posts</h2>
+      
+
+      <% posts.forEach(post => { %>
+        <br>
+        <div class="post">
+          <h2 class="post-title"><%= post.title %></h2>
+          <p class="post-author">Posted by <%= post.userName %> on <%= post.date %></p>
+          <p class="post-content">
+            <%= post.body %>
+          </p>
+        </div>
+      <% }) %>
+
+      <!-- NEW POST MODAL -->
+      <div id="newpostModal" class="newpost-modal">
+        <!-- Modal content -->
+        <div class="newpost-modal-content">
+          <span class="newpost-modal-close">&times;</span>
+          <h2>New Post</h2>
+          <form class="newpost-form">
+            <label for="title" class="newpost-label"> Title </label>
+            <input type="text" name="title" id="title" class="newpost-input newpost-title" />
+            <label for="content" class="newpost-label">Body Content</label>
+            <textarea
+              name="content"
+              id="content"
+              cols="30"
+              rows="10"
+              class="newpost-input newpost-body"
+            >
+            </textarea>
+            <br />
+            <input type="submit" value="Post" class="newpost-submit" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="./main-bundled.js"></script>
+    <script>
+      let minus = document.querySelector(".counter-decrease")
+      let plus = document.querySelector(".counter-increase")
+      let counter = document.querySelector('.counter')
+      minus.addEventListener('click', () => {
+        let counterValue = parseInt(counter.innerHTML)
+        counterValue -= 1
+        if(counterValue >= 0){
+          counter.innerHTML = counterValue
+        }
+      })
+      plus.addEventListener('click', () => {
+        let counterValue = parseInt(counter.innerHTML)
+        counterValue += 1
+        counter.innerHTML = counterValue
+      })
+    </script>
+  </body>
+</html>

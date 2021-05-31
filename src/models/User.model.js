@@ -17,9 +17,6 @@ const heightSchema = mongoose.Schema({
 const weightSchema = mongoose.Schema({
   date: {
     type: String,
-    default: () => {
-      return new Date().toISOString().slice(0, 10).replace(/-/g, "");
-    },
   },
   weight: {
     type: Number,
@@ -60,14 +57,18 @@ const userSchema = mongoose.Schema({
     type: Number,
     // required: true,
   },
+  gender: {
+    type: String,
+    enum: ['Male', 'Female']
+  },
   about: {
     type: String,
   },
   targetWeight: {
     type: Number,
   },
-  heights: {
-    type: [heightSchema],
+  height: {
+    type: Number,
   },
   weights: {
     type: [weightSchema],
@@ -78,9 +79,9 @@ const userSchema = mongoose.Schema({
   foodData: {
     type: [foodDataSchema],
   },
-  connections: {
-    type: [mongoose.Schema.Types.ObjectId],
-  },
+  // connections: {
+  //   type: [mongoose.Schema.Types.ObjectId],
+  // },
   posts: {
     type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
     ref: "Post",

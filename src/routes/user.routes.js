@@ -7,6 +7,7 @@ const UserModel = require("../models/User.model");
 router.get("/getallusers", userController.getAllUsers);
 router.post("/register", userController.register);
 router.post("/login", userController.login);
+router.post('/updateuser', auth, userController.updateUser)
 router.get("/getposts", auth, userController.getUserPost);
 router.get("/search", auth, userController.searchUserByName);
 router.post("/setheight", auth, userController.setHeight);

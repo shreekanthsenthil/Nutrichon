@@ -12,12 +12,14 @@ const postSchema = mongoose.Schema({
   },
   date: {
     type: String,
-    default: Date.now,
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,
   },
+  userName: {
+    type: String
+  }
 });
 
 module.exports = mongoose.model("Post", postSchema);

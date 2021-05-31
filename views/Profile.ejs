@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="./assets/css/profile.css" />
+  </head>
+  <body>
+    <center>
+      <div class="box">
+        <img src="./assets/img/profile.jpg" alt="profile picture" />
+        <div class="edit-profile"></div>
+        <input type="text" class="name-field" name="name" placeholder="Name" value="<%= user.name %>"/>
+        <input type="password" name="password" placeholder="New Password" class="password-field"/>
+        <input type="text" name="phone" placeholder="Phone Number" class="phone-field" value="<%= user.phone %>"/>
+        <!-- <input type="date" name="" placeholder="Date of Birth" value="2001-03-25" /> -->
+        <input type="text" name="" placeholder="Gender" class="gender-field" value="<%= user.gender %>"/>
+        <input type="number" class="height-field" min="120" name="" placeholder="Height (in cms)" value="<%= user.height %>"/>
+        <button style="float: left; margin: 10px 0 0 18.2%" class="cancel-button">CANCEL</button>
+        <button style="float: right; margin: 10px 18.2% 0 0" class="submit-button">DONE</button>
+      </div>
+    </center>
+  </body>
+  <script src="./main-bundled.js"></script>
+</html>
