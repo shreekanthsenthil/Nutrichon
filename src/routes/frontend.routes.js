@@ -24,7 +24,7 @@ router.get('/home', auth, async (req, res) => {
 })
 
 router.get('/aboutus', (req, res) => {
-    res.render('AboutUs.ejs')
+    res.render('Aboutus.ejs')
 })
 
 router.get('/profile', auth, async (req, res) => {
