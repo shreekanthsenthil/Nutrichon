@@ -274,3 +274,9 @@ exports.getWeights = async (req, res, next) => {
     res.status(500).json(err);
   }
 };
+
+
+exports.logout = (req, res) => {
+  res.clearCookie("jwt")
+  res.redirect('/')
+}
