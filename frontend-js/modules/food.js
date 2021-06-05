@@ -188,7 +188,6 @@ export default class Food{
         parent.dataset.quantity = quantity
         let counter = parent.querySelector('.counter')
         counter.innerText = quantity
-        //ToDo: Send Quantity to Backend
         axios.post('/food/setquantity', {type: type, food: food, quantity: quantity}).then(res => {
             console.log(res);
         }).catch(err => console.log(err))
@@ -201,7 +200,6 @@ export default class Food{
         let food = parent.dataset.food
         let quantity = parseInt(parent.dataset.quantity) - 1
         if(quantity <= 0){
-            // todo remove element
             parent.remove()
         } else {
             parent.dataset.quantity = quantity
@@ -209,13 +207,11 @@ export default class Food{
             console.log(counter.innerText);
             counter.innerText = quantity
         }
-        //ToDo: Send Quantity to Backend
         axios.post('/food/setquantity', {type: type, food: food, quantity: quantity}).then(res => {
             console.log(res);
         }).catch(err => console.log(err))
         this.updateCalorie()
     }
-    // ToDo: Initialize Food Results.
     initializeFoodData(){
         axios.get('/food/getfooddata').then(res => {
             console.log(res);

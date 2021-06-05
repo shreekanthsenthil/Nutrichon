@@ -41,6 +41,7 @@ exports.register = (req, res, next) => {
                   {
                     email: user.email,
                     userId: user._id,
+                    name: user[0].name
                   },
                   process.env.JWT_SECRET || "key"
                 );
