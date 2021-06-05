@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script
+      src="https://kit.fontawesome.com/d8377fe31e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      let data = [
+      ["Date", "Weight"],
+      ["12.3", 67],
+      ["13.3", 67.5],
+      ["14.3", 66.9],
+      ["15.3", 67.8],
+      ["16.3", 68],
+      ["17.3", 68.3],
+    ]
+      google.charts.load("current", { packages: ["corechart"] });
+      google.charts.setOnLoadCallback(() => {drawChart(data)});
+
+      function drawChart(data) {
+        var data = google.visualization.arrayToDataTable(data);
+
+        var options = {
+          title: "Weight",
+          hAxis: { title: "Date" },
+          vAxis: { title: "Weight (in kgs)" },
+          height: 300,
+          width: "100%",
+          legend: {
+            position: "none",
+          },
+          backgroundColor: "beige",
+        };
+
+        var chart = new google.visualization.LineChart(
+          document.getElementById("weightgraph")
+        );
+
+        chart.draw(data, options);
+      }
+    </script>
+    <link rel="stylesheet" href="./assets/css/Home.css" />
+    <title>Home Page</title>
+  </head>
+  <body>
+    <nav>
+      <a href="/home" class="active">Home</a>
+      <a href="/profile">Profile</a>
+      <a href="/connect">Connect</a>
+      <a href="/aboutus" class="float-right">About Us</a>
+      <a href="/logout" class="float-right">Logout</a>
+    </nav>
+    <div class="weight section" style="margin-top: 90px">
+      <br />
+      <div id="weightgraph" style="width: 95%"></div>
+      <br />
+      <div class="weight-in">
+        <label for="weight-input">
+          <i class="fa fa-plus-circle" aria-hidden="true"></i>
+        </label>
+        <input type="number" class="weight-input" id="weight-input" />
+        <p>kgs</p>
+      </div>
+      <div class="bmi">
+        <h2>BMI</h2>
+        <i class="fas fa-arrow-down bmi-indicator">Obese</i>
+        <div class="bmi-level"></div>
+        <i class="fas fa-arrow-up bmi-indicator"></i>
+      </div>
+      <br />
+    </div>
+    <div class="section nutrichon">
+      <div class="total-calorie">
+        <svg class="progress-ring" height="35" width="35">
+          <circle
+            class="progress-ring__circle2"
+            stroke-width="4"
+            stroke="#969696"
+            fill="transparent"
+            r="10"
+            cx="15"
+            cy="15"
+          />
+          <circle
+            class="progress-ring__circle"
+            stroke-width="4"
+            stroke="black"
+            fill="transparent"
+            r="10"
+            cx="15"
+            cy="15"
+          />
+        </svg>
+        <h4><span>1000</span> of 1500 Calories Consumed</h4>
+      </div>
+      <!-- BREAKFAST -->
+      <div class="meal breakfast">
+        <div class="meal-heading">
+        <img src="./assets/img/breakfast.png" height="30px">
+        <h3>Breakfast</h3>
+        <button class="breakfast-add"><i class="fas fa-plus"></i></button>
+        </div>
+        <div class="meal-foods">
+          <div class="meal-food">
+            <p>Idli (pcs)</p>
+            <div class="meal-food-quantity">
+              <button class="meal-food-quantity-minus counter-decrease"><i class="fas fa-minus-circle"></i></button>
+              <span class="meal-food-quantity-number counter">1</span>
+              <button class="meal-food-quantity-plus counter-increase"><i class="fas fa-plus-circle"></i></button>
+            </div>
+          </div>
+
+          <div class="meal-food">
+            <p>Idli (pcs)</p>
+            <div class="meal-food-quantity">
+              <button class="meal-food-quantity-minus"><i class="fas fa-minus-circle"></i></button>
+              <span class="meal-food-quantity-number">1</span>
+              <button class="meal-food-quantity-plus"><i class="fas fa-plus-circle"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="meal lunch">
+        <div class="meal-heading">
+        <img src="./assets/img/lunch.png" height="30px">
+        <h3>Lunch</h3>
+        <button class="lunch-add"><i class="fas fa-plus"></i></button>
+        </div>
+        <div class="meal-foods">
+          <div class="meal-food">
+            <p>No foods have yet been added</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="meal dinner">
+        <div class="meal-heading">
+        <img src="./assets/img/dinner.png" height="30px">
+        <h3>Dinner</h3>
+        <button><i class="fas fa-plus"></i></button>
+        </div>
+        <div class="meal-foods">
+          <div class="meal-food">
+            <p>No foods have yet been added</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="meal snack">
+        <div class="meal-heading">
+        <img src="./assets/img/snack.png" height="30px">
+        <h3>Snack</h3>
+        <button><i class="fas fa-plus"></i></button>
+        </div>
+        <div class="meal-foods">
+          <div class="meal-food">
+            <p>No foods have yet been added</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="add-food-modal">
+        <div class="add-food-modal-content">
+          <span class="add-food-modal-close">&times;</span>
+          <h3>Add Food</h3>
+          <input
+            type="text"
+            class="search-field"
+            placeholder="&#xF002; Food"
+            style="font-family: Roboto, FontAwesome"
+          />
+          <div class="food-result-area">
+            
+            <div class="food">
+              <p>Idli <span>(pcs)</span> </p>
+              <div class="add-food-quantity">
+                <button class="meal-food-quantity-minus"><i class="fas fa-minus-circle"></i></button>
+                  <span class="meal-food-quantity-number">1</span>
+              <button class="meal-food-quantity-plus"><i class="fas fa-plus-circle"></i></button>
+              </div>
+            </div>
+
+            <div class="food food-last">
+              <p>Dosa <span>(pcs)</span> </p>
+              <div class="add-food-quantity">
+                <button class="meal-food-quantity-minus"><i class="fas fa-minus-circle"></i></button>
+                  <span class="meal-food-quantity-number">2</span>
+              <button class="meal-food-quantity-plus"><i class="fas fa-plus-circle"></i></button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    
+
+
+    <!-- POST SECTION -->
+    <div class="section posts">
+      <button class="newpost-create">New Post</button>
+      <h2>Posts</h2>
+      <div class="post">
+        <h2 class="post-title">Title (Change BG)</h2>
+        <p class="post-author">Posted by author on 15/03/2021</p>
+        <p class="post-content">
+          Duis sunt sunt culpa excepteur sint aliquip dolor. Fugiat velit sit ad
+          labore. Officia Lorem cupidatat exercitation qui ad eu consequat
+          incididunt aliqua qui aute velit ad commodo. Fugiat elit nisi eu
+          occaecat id excepteur ullamco irure deserunt aute do officia fugiat.
+          Irure fugiat deserunt est nulla labore sunt incididunt nulla anim
+          officia minim ullamco. Ullamco ex nostrud aliquip aute sint duis
+          nostrud ad. Enim culpa cupidatat sunt enim Lorem sunt veniam
+          incididunt. Exercitation nulla proident officia excepteur irure
+          cupidatat esse ex. Deserunt esse deserunt esse anim in ea voluptate
+          elit consequat. Laboris quis excepteur deserunt aute in magna velit
+          sint deserunt laborum amet Lorem. Sint nostrud qui sint ea.
+        </p>
+      </div>
+      <!-- NEW POST MODAL -->
+      <div id="newpostModal" class="newpost-modal">
+        <!-- Modal content -->
+        <div class="newpost-modal-content">
+          <span class="newpost-modal-close">&times;</span>
+          <h2>New Post</h2>
+          <form action="/newpost" method="post" class="newpost-form">
+            <label for="title" class="newpost-label"> Title </label>
+            <input type="text" name="title" id="title" class="newpost-input" />
+            <label for="content" class="newpost-label">Body Content</label>
+            <textarea
+              name="content"
+              id="content"
+              cols="30"
+              rows="10"
+              class="newpost-input"
+            >
+            </textarea>
+            <br />
+            <input type="submit" value="Post" class="newpost-submit" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      document
+        .querySelector(".newpost-create")
+        .addEventListener("click", () => {
+          document.querySelector(".newpost-modal").style.display = "block";
+        });
+
+      document
+        .querySelector(".newpost-modal-close")
+        .addEventListener("click", () => {
+          document.querySelector(".newpost-modal").style.display = "none";
+        });
+
+      document
+        .querySelector(".breakfast-add")
+        .addEventListener("click", () => {
+          document.querySelector(".add-food-modal").style.display = "block";
+        });
+      
+      document
+        .querySelector(".add-food-modal-close")
+        .addEventListener("click", () => {
+          document.querySelector(".add-food-modal").style.display = "none";
+        });
+
+      const circle = document.querySelector(".progress-ring__circle");
+      const radius = circle.r.baseVal.value;
+      const circumference = radius * 2 * Math.PI;
+      circle.style.strokeDasharray = `${circumference} ${circumference}`;
+      circle.style.strokeDashoffset = 150;
+
+      const circle2 = document.querySelector(".progress-ring__circle2");
+      const radius2 = circle2.r.baseVal.value;
+      const circumference2 = radius2 * 2 * Math.PI;
+      circle2.style.strokeDasharray = `${circumference2} ${circumference2}`;
+      circle2.style.strokeDashoffset = 0;
+    </script>
+    <script>
+      let minus = document.querySelector(".counter-decrease")
+      let plus = document.querySelector(".counter-increase")
+      let counter = document.querySelector('.counter')
+      minus.addEventListener('click', () => {
+        let counterValue = parseInt(counter.innerHTML)
+        counterValue -= 1
+        if(counterValue >= 0){
+          counter.innerHTML = counterValue
+        }
+      })
+      plus.addEventListener('click', () => {
+        let counterValue = parseInt(counter.innerHTML)
+        counterValue += 1
+        counter.innerHTML = counterValue
+      })
+
+      let weightInput = document.querySelector('.weight-input')
+      weightInput.addEventListener('keypress', (e) => {
+        if(e.key === 'Enter'){
+          let newWeight = parseInt(weightInput.value)
+          let newData = [
+          ["Date", "Weight"],
+          ["12.3", 67],
+          ["13.3", 67.5],
+          ["14.3", 66.9],
+          ["15.3", 67.8],
+          ["16.3", 68],
+          ["17.3", 68.3],
+          ["18.5", newWeight]
+        ]
+        google.charts.setOnLoadCallback(() => {drawChart(newData)});
+        }
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,410 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap');
+
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 60px;
+    background-color: #333;
+}
+
+nav a {
+    color: white;
+    display: block;
+    float: left;
+    padding: 19px;
+    text-align: center;
+}
+
+nav a:hover {
+    color: black;
+    background-color: #ddd;
+}
+
+nav a.active {
+    color: black;
+    background-color: #779800;
+}
+
+nav .float-right {
+    float: right;
+}
+
+.section {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    background-color: beige;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.3);
+}
+
+.section:hover {
+    box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.5);
+}
+
+.weightgraph {
+    border: 5px #779800 solid;
+}
+
+.weight-in p {
+    display: inline;
+}
+
+.weight-in input {
+    width: 50px;
+    background-color: white;
+}
+
+.weight-in {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+.bmi {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+.bmi-indicator {
+    margin-left: 80%;
+}
+
+.bmi-level {
+    height: 20px;
+    background-image: linear-gradient(to right, #ff0000, #df5800, #bb7700, #988b00, #779800, #779800, #779800, #779800, #988b00, #bb7700, #df5800, #ff0000);
+    border-radius: 50px;
+}
+
+
+.progress-ring__circle {
+    z-index: 1;
+    stroke-dasharray: 10 20;
+    transition: stroke-dashoffset 0.35s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+.progress-ring__circle2 {
+    stroke-dasharray: 10 20;
+    transition: stroke-dashoffset 0.35s;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+}
+
+.total-calorie{
+    display: flex;
+}
+
+.total-calorie svg {
+    margin-top: 12px;
+}
+
+.total-calorie h4 {
+    margin-left: 20px;
+    vertical-align: middle;
+    font-weight: 550;
+}
+
+.total-calorie h4 span {
+    font-weight: 700;
+}
+
+.meal{
+    width: 100%;
+    background-color: #d6d6d6;
+    box-shadow:  1px 1px #aaaaaa;
+    border-radius: 2px;
+    margin-bottom: 15px;
+}
+
+.meal-heading{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: white;
+    padding: 10px;
+}
+
+.meal-heading img{
+    margin-left: 10px;
+}
+
+.meal-heading h3{
+    margin: 0 30px;
+}
+
+.meal-heading button{
+    display: block;
+    margin-left: auto;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.meal-food{
+    display: flex;
+    padding: 5px 10px;
+    border-bottom: 2px solid #aaaaaa;
+}
+
+.meal-food p{
+    font-weight: 500;
+}
+
+.meal-food-quantity{
+    align-self: center;
+    margin-left: auto;
+}
+
+.meal-food-quantity-plus{
+    background-color: transparent;
+    border: none;
+    padding: 0 2px;
+}
+
+.meal-food-quantity-minus{
+    background-color: transparent;
+    border: none;
+    padding: 0 2px;
+}
+
+.meal-food-quantity-number{
+    padding: 0 2px;
+}
+
+
+.add-food-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: 0.3s ease-in;
+}
+
+.add-food-modal-content {
+    background-color: #fefefe;
+    border-radius: 15px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 70vh;
+}
+
+.add-food-modal-close {
+    cursor: pointer;
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.add-food-modal-close:hover,
+.add-food-modal-close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.search-field {
+    display: block;
+    box-sizing: border-box;
+    width: 98%;
+    font-size: 17px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+}
+
+.search-field:focus,
+.search-field:active {
+    outline: 0;
+    border: 3px solid #80bdff;
+    box-shadow: none;
+}
+
+.food-result-area{
+    margin-top: 20px;
+    background-color: #ebebeb;
+    border-radius: 5px;
+}
+
+.food-result-area .food{
+    display: flex;
+    padding: 20px;
+    border-bottom: 2px #888 solid;
+}
+
+.food-result-area .food-last{
+    border-bottom: 0px;
+}
+
+.food-result-area .food p{
+    margin: 0;
+}
+
+.food-result-area .food p span{
+    margin-left: 3px;
+    color: #333;
+}
+
+.food-result-area .food .add-food-quantity {
+    margin-left: auto;
+}
+
+.newpost-create {
+    float: right;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100px;
+    height: 40px;
+    padding: 5px;
+    font-size: 15px;
+    outline: 0;
+    border-radius: 3px;
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    box-shadow: none;
+    border-style: solid;
+}
+
+.post {
+    background-color: #0062cc;
+    padding: 10px;
+    border-radius: 5px;
+    border: 5px solid #0062cc;
+}
+
+.post-title {
+    color: rgb(19, 16, 16);
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.post-author {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+}
+
+.post-content {
+    text-align: justify;
+    font-size: 15px;
+}
+
+.newpost-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    transition: 3s ease-in;
+}
+
+.newpost-modal-content {
+    background-color: #fefefe;
+    border-radius: 15px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    height: 70vh;
+}
+
+.newpost-modal-close {
+    cursor: pointer;
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.newpost-input {
+    display: block;
+    width: 100%;
+    border: 1px solid #ced4da;
+    border-radius: 3px;
+}
+
+.newpost-input:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
+}
+
+input.newpost-input {
+    height: 30px;
+    font-size: 20px;
+}
+
+textarea.newpost-input {
+    height: 30vh;
+    font-size: 18px;
+}
+
+.newpost-label {
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 3px;
+}
+
+.newpost-submit {
+    cursor: pointer;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    border-radius: 4px;
+    width: 100px;
+    height: 40px;
+    font-size: 17px;
+}
+
+.newpost-submit:focus {
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 50%);
+}
+
+.newpost-submit:hover {
+    color: #fff;
+    background-color: #0069d9;
+    border-color: #0062cc;
+}

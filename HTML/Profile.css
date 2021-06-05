@@ -1,0 +1,85 @@
+body {
+  background-color: white;
+}
+*:focus {
+  outline: none;
+}
+.box {
+  box-sizing: border-box;
+  width: 700px;
+  height: 650px;
+  border: 2px solid rgb(124, 124, 124);
+  box-shadow: -3px -3px 7px, 3px 3px 5px rgba(94, 104, 121, 0.288);
+  border-radius: 5px;
+  background-color: aliceblue;
+  margin-top: 50px;
+  overflow: hidden;
+  padding: 10px;
+}
+img {
+  box-sizing: border-box;
+  width: 149px;
+  height: 149px;
+  border-radius: 50%;
+  margin: 0;
+  border: 3px solid burlywood;
+  padding: 3px;
+  background-color: gray;
+}
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="number"] {
+  display: block;
+  box-sizing: border-box;
+  background: none;
+  color: black;
+  margin-bottom: 30px;
+  padding: 4px;
+  width: 220px;
+  height: 32px;
+  border: none;
+  border-bottom: 1px solid black;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  transition: 0.2 ease;
+}
+input[type="text"]:focus,
+input[type="email"]:focus {
+  border-bottom: 2px solid gray;
+  border-bottom-right-radius: 20px;
+  color: gray;
+  transition: 0.2 ease;
+}
+button {
+  border: 1px solid #3498db;
+  background-color: black;
+  color: white;
+  height: 30px;
+  width: 100px;
+  border-radius: 5px;
+  margin: 0px;
+  transition: all 0.3s;
+}
+button:hover {
+  transform: scale(1.1);
+}
+input[type="file"] {
+  display: none;
+}
+label {
+  box-sizing: border-box;
+  font-size: 20px;
+  background-color: black;
+  color: white;
+  border: 2px solid burlywood;
+  padding: 2px 15px;
+  border-radius: 5px;
+  transition: all 0.3s;
+  margin-bottom: 10px;
+}
+label:hover {
+  background-color: #3498db;
+  color: black;
+}

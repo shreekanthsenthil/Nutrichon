@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Login.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="login-form">
+      <form action="" method="" onsubmit="return false">
+        <h2 class="text-center">Log In</h2>
+        <div class="form-group">
+          <input
+            type="email"
+            name="email"
+            class="form-control email-field"
+            placeholder="Email"
+            required="required"
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            placeholder="Password"
+            required="required"
+          />
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn submit">Log In</button>
+        </div>
+        <br />
+        <p class="text-center">Don't have an account? <a>Register</a></p>
+      </form>
+    </div>
+    <script>
+      let submit = document.querySelector('.submit')
+      let emailField = document.querySelector(".email-field")
+      submit.addEventListener('click', () => {
+        let email = emailField.value
+        let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        let emailVaild = re.test(String(email).toLowerCase())
+        if(emailVaild != true){
+          alert("Enter a valid Email")
+        }
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Profile Page</title>
+    <link rel="stylesheet" href="profile.css" />
+  </head>
+  <body>
+    <center>
+      <div class="box">
+        <img src="./assets/img/profile.jpg" alt="profile picture" />
+        <input type="file" name="" id="file" accept="image/*" />
+        <br />
+        <label for="file">Edit pic</label><br />
+        <input type="text" name="" placeholder="User Name" />
+        <input type="email" name="" placeholder="Email Id" class="email-field"/>
+        <input type="text" name="" placeholder="Phone Number" class="phone-field"/>
+        <input type="date" name="" placeholder="Date of Birth" />
+        <input type="text" name="" placeholder="Gender" class="gender-field"/>
+        <input type="number" min="120" name="" placeholder="Height" />
+        <button style="float: left; margin: 10px 0 0 18.2%">CANCEL</button>
+        <button style="float: right; margin: 10px 18.2% 0 0" class="submit">DONE</button>
+      </div>
+    </center>
+  </body>
+  <script>
+    let emailField = document.querySelector(".email-field")
+    let phoneField = document.querySelector(".phone-field")
+    let genderField = document.querySelector(".gender-field")
+    let submit = document.querySelector('.submit')
+    submit.addEventListener('click', (e)=>{
+      let email = emailField.value
+      let phone = phoneField.value
+      let gender = genderField.value
+      let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      let emailVaild = re.test(String(email).toLowerCase());  
+      re = /^[6-9]\d{9}$/
+      let phoneValid = re.test(String(phone))
+      re = /^male$|^female$/i
+      let genderValid = re.test(String(gender))
+      if(emailVaild != true){
+        alert('Enter a valid Email')
+      }
+      if(phoneValid != true) {
+        alert("Enter a valid Phone Number")
+      }
+      if(genderValid != true) {
+        alert("Enter a valid Gender")
+      }
+    })
+  </script>
+</html>

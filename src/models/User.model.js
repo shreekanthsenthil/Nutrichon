@@ -4,7 +4,9 @@ const validator = require("validator");
 const heightSchema = mongoose.Schema({
   date: {
     type: String,
-    default: Date.now,
+    default: () => {
+      return new Date().toISOString().slice(0, 10).replace(/-/g, "");
+    },
   },
   height: {
     type: Number,
@@ -15,7 +17,6 @@ const heightSchema = mongoose.Schema({
 const weightSchema = mongoose.Schema({
   date: {
     type: String,
-    default: Date.now,
   },
   weight: {
     type: Number,
@@ -34,8 +35,6 @@ const foodDataSchema = mongoose.Schema({
   },
 });
 
-const postSchema = mongoose.Schema({});
-
 const userSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
   email: {
@@ -44,6 +43,9 @@ const userSchema = mongoose.Schema({
     unique: true,
     validate: validator.isEmail,
   },
+  name: {
+    type: String
+  },
   password: {
     type: String,
     required: true,
@@ -51,17 +53,13 @@ const userSchema = mongoose.Schema({
   phone: {
     type: Number,
   },
-  firstName: {
-    type: String,
-    required: true,
-  },
-  lastName: {
-    type: String,
-    required: true,
-  },
   age: {
     type: Number,
-    required: true,
+    // required: true,
+  },
+  gender: {
+    type: String,
+    enum: ['Male', 'Female']
   },
   about: {
     type: String,
@@ -69,8 +67,8 @@ const userSchema = mongoose.Schema({
   targetWeight: {
     type: Number,
   },
-  heights: {
-    type: [heightSchema],
+  height: {
+    type: Number,
   },
   weights: {
     type: [weightSchema],
@@ -81,9 +79,9 @@ const userSchema = mongoose.Schema({
   foodData: {
     type: [foodDataSchema],
   },
-  connections: {
-    type: [mongoose.Schema.Types.ObjectId],
-  },
+  // connections: {
+  //   type: [mongoose.Schema.Types.ObjectId],
+  // },
   posts: {
     type: [{ type: mongoose.Schema.Types.ObjectId, ref: "Post" }],
     ref: "Post",
