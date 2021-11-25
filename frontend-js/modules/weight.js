@@ -9,12 +9,12 @@ export default class Weight{
         this.getWeightData()
         this.data = [
           ["Date", "Weight"],
-          ["21.5", 67],
-          ["22.5", 67.5],
-          ["23.5", 66.9],
-          ["24.5", 67.8],
-          ["25.5", 68],
-          ["26.5", 68.3]
+          ["30.5", 67],
+          ["31.5", 67.5],
+          ["01.6", 66.9],
+          ["02.6", 67.8],
+          ["03.6", 68],
+          ["04.6", 68.3]
           ]
         google.charts.load("current", { packages: ["corechart"] });
         google.charts.setOnLoadCallback(() => {this.drawChart(this.data)});
@@ -57,13 +57,13 @@ export default class Weight{
             axios.post('/users/setweight', {weight: newWeight}).then(res => {
                 this.data = [
                     ["Date", "Weight"],
-                    ["21.5", 67],
-                    ["22.5", 67.5],
-                    ["23.5", 66.9],
-                    ["24.5", 67.8],
-                    ["25.5", 68],
-                    ["26.5", 68.3],
-                    ["29.5", newWeight]
+                    ["30.5", 67],
+                    ["31.5", 67.5],
+                    ["01.6", 66.9],
+                    ["02.6", 67.8],
+                    ["03.6", 68],
+                    ["04.6", 68.3],
+                    ["05.6", newWeight]
                   ]
                 google.charts.setOnLoadCallback(() => {this.drawChart(this.data)});
                 this.updateBMI(newWeight)
