@@ -7,10 +7,10 @@ body {
   
   .column {
     float: left;
-    width: 17.3%;
+    width: 18%;
     margin-bottom: 16px;
     padding: 0 8px;
-    margin-left:80px;
+    margin-left:41%;
   }
   
   .box {
@@ -90,6 +90,5 @@ nav a.active {
 nav .float-right {
   float: right;
 }
-  
   
   
